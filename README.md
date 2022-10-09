@@ -1,4 +1,4 @@
-# Proyecto DCCinema Grupo X
+# Proyecto DCCinema Grupo 29
 
 #### Entrega: 1
 
