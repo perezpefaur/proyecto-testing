@@ -1,4 +1,6 @@
 ---
-:checks_add: []
+:checks_add:
+- :rubocop
 :checks_remove:
 - :jshint
+- :migration
