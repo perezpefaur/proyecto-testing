@@ -11,6 +11,7 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 - Rubocop se corre antes de cualquier commit, tienes que pasarlo para commitear
 - Deploy de heroku: <https://nameless-headland-31565.herokuapp.com/>
 - Se corren rubocop, simplecov y testing al pushear
+- Se protege la rama main con una serie de reglas
 
 ### Consideraciones generales para la correcion
 
