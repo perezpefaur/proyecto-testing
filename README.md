@@ -9,6 +9,7 @@
 Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo lo pedido
 
 - Rubocop se corre antes de cualquier commit, tienes que pasarlo para commitear
+- Deploy de heroku: <https://nameless-headland-31565.herokuapp.com/>
 
 ### Consideraciones generales para la correcion
 
