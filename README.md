@@ -10,7 +10,7 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 
 - Rubocop se corre antes de cualquier commit, tienes que pasarlo para commitear
 - Deploy de heroku: <https://nameless-headland-31565.herokuapp.com/>
-- Se corren los test on push
+- Se corren rubocop, simplecov y testing al pushear
 
 ### Consideraciones generales para la correcion
 
