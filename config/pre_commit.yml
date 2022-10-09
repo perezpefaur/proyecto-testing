@@ -1,0 +1,4 @@
+---
+:checks_add: []
+:checks_remove:
+- :jshint
