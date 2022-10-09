@@ -1,0 +1,190 @@
+  [1m[35m (122.9ms)[0m  [1m[35mCREATE DATABASE "proyecto-Testing_development" ENCODING = 'unicode'[0m
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE DATABASE "proyecto-Testing_test" ENCODING = 'unicode'[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3068764288772549535)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservas (20211111171417)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "reservas" ("id" bigserial primary key, "sala" integer, "fecha" date, "asiento" integer, "horario" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_reservas_on_sala_and_fecha_and_asiento_and_horario" ON "reservas" ("sala", "fecha", "asiento", "horario")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111171417"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRooms (20211115224742)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" bigserial primary key, "number" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211115224742"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMovies (20211115224920)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211115224920"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMovieTimes (20211115225219)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "movie_times" ("id" bigserial primary key, "movie" character varying, "room" integer, "time" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211115225219"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20211123222824)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211123222824"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRangoFechaToMovieTimes (20211124162849)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "movie_times" ADD "date_start" date NOT NULL, ADD "date_enf" date NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211124162849"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMovieIdToMovieTime (20211125033718)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mALTER TABLE "movie_times" DROP COLUMN "movie"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "movie_times" ADD "movie_id" bigint NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_movie_times_on_movie_id" ON "movie_times" ("movie_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "movie_times" ADD CONSTRAINT "fk_rails_e6da71cf06"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211125033718"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixTypo (20211125130104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "movie_times" RENAME COLUMN "date_enf" TO "date_end"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211125130104"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImageToMovies (20211126195647)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "movies" ADD "image" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211126195647"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToReservas (20221004204327)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "reservas" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221004204327"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-09 20:38:47.589849"], ["updated_at", "2022-10-09 20:38:47.589849"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(3068764288772549535)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (1.0ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 1], ["created_at", "2022-10-09 20:38:55.651274"], ["updated_at", "2022-10-09 20:38:55.651274"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 2], ["created_at", "2022-10-09 20:38:55.654154"], ["updated_at", "2022-10-09 20:38:55.654154"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 3], ["created_at", "2022-10-09 20:38:55.655443"], ["updated_at", "2022-10-09 20:38:55.655443"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 4], ["created_at", "2022-10-09 20:38:55.656947"], ["updated_at", "2022-10-09 20:38:55.656947"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 5], ["created_at", "2022-10-09 20:38:55.658120"], ["updated_at", "2022-10-09 20:38:55.658120"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 6], ["created_at", "2022-10-09 20:38:55.659370"], ["updated_at", "2022-10-09 20:38:55.659370"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 7], ["created_at", "2022-10-09 20:38:55.660634"], ["updated_at", "2022-10-09 20:38:55.660634"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["number", 8], ["created_at", "2022-10-09 20:38:55.661904"], ["updated_at", "2022-10-09 20:38:55.661904"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-10-09 17:39:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movie/home.html.erb within layouts/application
+  Rendered movie/home.html.erb within layouts/application (Duration: 576.0ms | Allocations: 86920)
+  Rendered layout layouts/application.html.erb (Duration: 587.0ms | Allocations: 103464)
+Completed 200 OK in 595ms (Views: 589.9ms | ActiveRecord: 0.0ms | Allocations: 110790)
+
+
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:39:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:30 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:36 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:41 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:48 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:40:54 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:25 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+Started GET "/_next/webpack-hmr" for ::1 at 2022-10-09 17:41:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/_next/webpack-hmr"):
+  
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "proyecto-Testing_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "proyecto-Testing_test" ENCODING = 'unicode'[0m
