@@ -29,7 +29,6 @@ jobs:
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
-        run: bundle lock --add-platform x86_64-linux
         with:
           bundler-cache: false
       # Add or replace database setup steps here
