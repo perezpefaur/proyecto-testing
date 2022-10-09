@@ -1,6 +1,6 @@
 # Proyecto DCCinema Grupo X
 
-#### Entrega: X
+#### Entrega: 1
 
 #### Url Heroku
 
