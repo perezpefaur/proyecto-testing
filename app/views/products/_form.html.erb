@@ -18,16 +18,16 @@
 
   <div>
     <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+    <%= form.select :category, options_for_select(["Bebestible", "Comestible", "Souvenir"]) %>
   </div>
 
   <div>
-    <%= form.label :weight, style: "display: block" %>
+    <h1>Weight (g.)</h1>
     <%= form.text_field :weight %>
   </div>
 
   <div>
-    <%= form.label :volume, style: "display: block" %>
+    <h1>Volume (cc.)</h1>
     <%= form.text_field :volume %>
   </div>
 

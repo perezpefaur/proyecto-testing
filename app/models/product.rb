@@ -1,9 +1,17 @@
 class Product < ApplicationRecord
     validates :price, presence: true
 
+    validate :is_valid_price
     validate :is_valid_category
     validate :comestible_has_weight
     validate :bebestible_has_volume
+
+    def is_valid_price
+        if price.nil? || price < 0 || price.class != Integer
+            errors.add(:price, "must be a positive number")
+        end
+    end
+
 
     def is_valid_category
         if category != "Bebestible" and category != "Comestible" and category != "Souvenir"
@@ -27,10 +35,5 @@ class Product < ApplicationRecord
             end
         end
     end
-
-
-
-
-
 
 end

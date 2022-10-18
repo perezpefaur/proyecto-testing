@@ -438,3 +438,208 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.3ms | Allocations: 5006)
 
 
+Started GET "/products" for 127.0.0.1 at 2022-10-18 20:10:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (9.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.4ms | Allocations: 434)
+  Rendered products/_product.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered products/_product.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered products/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 17389)
+  Rendered layout layouts/application.html.erb (Duration: 82.0ms | Allocations: 51451)
+Completed 200 OK in 94ms (Views: 80.6ms | ActiveRecord: 4.0ms | Allocations: 58648)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2022-10-18 20:13:20 -0300
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 60.7ms | Allocations: 14246)
+  Rendered products/new.html.erb within layouts/application (Duration: 76.8ms | Allocations: 14636)
+  Rendered layout layouts/application.html.erb (Duration: 76.9ms | Allocations: 14717)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms | Allocations: 15945)
+
+
+  
+ActionView::Template::Error (undefined method `select_tag' for #<ActionView::Helpers::FormBuilder:0x000000011b44e5c8 @nested_child_index={}, @options={:allow_method_names_outside_object=>true, :skip_default_ids=>false}, @template=#<ActionView::Base:0x0000000000cbc0>, @object=#<Product id: nil, price: nil, category: nil, weight: nil, volume: nil, created_at: nil, updated_at: nil>, @object_name="product", @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>true}, @default_html_options={}, @multipart=nil, @index=nil>
+Did you mean?  select):
+    18: 
+    19:   <div>
+    20:     <%= form.label :category, style: "display: block" %>
+    21:     <%= form.select_tag :category, options_for_select(["Bebestible", "Comestible", "Souvenir"]) %>
+    22:   </div>
+    23: 
+    24:   <div>
+  
+app/views/products/_form.html.erb:21
+app/views/products/_form.html.erb:1
+app/views/products/new.html.erb:3
+Started GET "/products/new" for 127.0.0.1 at 2022-10-18 20:13:30 -0300
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 3.9ms | Allocations: 2965)
+  Rendered products/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3380)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7736)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 8915)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2022-10-18 20:14:09 -0300
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 3.2ms | Allocations: 2321)
+  Rendered products/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2723)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 7027)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.0ms | Allocations: 8233)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2022-10-18 20:14:23 -0300
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.8ms | Allocations: 2132)
+  Rendered products/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 6838)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 8015)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:15:56 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1544)
+
+
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/product.rb:2:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:24:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:16:25 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1613)
+
+
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/product.rb:6:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:24:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:16:27 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 6140)
+
+
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/product.rb:6:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:24:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:16:31 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 814)
+
+
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/product.rb:6:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:24:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:16:57 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.0ms | Allocations: 1473)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1580)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 10354)
+Completed 422 Unprocessable Entity in 19ms (Views: 8.9ms | ActiveRecord: 4.3ms | Allocations: 15549)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:18 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Comestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.2ms | Allocations: 1448)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1555)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 10280)
+Completed 422 Unprocessable Entity in 23ms (Views: 8.9ms | ActiveRecord: 9.3ms | Allocations: 15220)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:20 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.1ms | Allocations: 1215)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1299)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5099)
+Completed 422 Unprocessable Entity in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 6302)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:20 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.1ms | Allocations: 1215)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1299)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 5098)
+Completed 422 Unprocessable Entity in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 6189)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:28 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 0.9ms | Allocations: 1448)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1555)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 10312)
+Completed 422 Unprocessable Entity in 16ms (Views: 7.6ms | ActiveRecord: 3.0ms | Allocations: 15332)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:32 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"3", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 0.9ms | Allocations: 1215)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1299)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 5094)
+Completed 422 Unprocessable Entity in 10ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 6273)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:43 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 2.0ms | Allocations: 2356)
+  Rendered products/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 2440)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 6235)
+Completed 422 Unprocessable Entity in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 7329)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-10-18 20:17:56 -0300
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"price"=>"-4", "category"=>"Bebestible", "weight"=>"", "volume"=>""}, "commit"=>"Create Product"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.0ms | Allocations: 1389)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1473)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 5268)
+Completed 422 Unprocessable Entity in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 6360)
+
+
