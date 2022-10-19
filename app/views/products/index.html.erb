@@ -2,11 +2,16 @@
 
 <h1>Products</h1>
 
+<%= form_with url: "/products", method: :get do |form| %>
+  <%= form.select :select_category, options_for_select(["All", "Bebestible", "Comestible", "Souvenir"]) %>
+  <%= form.submit "Filtrar" %>
+<% end %>
+
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
+    <%= render product%>
     <p>
-      <%= link_to "Show this product", product %>
+      <%= link_to "Show this product" , product %>
     </p>
   <% end %>
 </div>
