@@ -4,9 +4,29 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
+  # retrieve selected category from dropdown
+  # define variable selectedCategory
   # GET /products or /products.json
+  # find selected category on view
+
+  $selectedCategory = "All"
+  # change selected category to value in dropdown
+  def changeCategory
+    $selectedCategory = params[:category]
+    redirect_to products_path
+  end
+
+
   def index
-    @products = Product.all
+    if params[:select_category].present?
+      if params[:select_category] == "All"
+        @products = Product.all
+      else
+        @products = Product.where(category: params[:select_category])
+      end
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1 or /products/1.json
