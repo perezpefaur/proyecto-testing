@@ -46,4 +46,35 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
+  test 'should get index' do
+    get products_url
+    assert_response :success
+  end
+
+  test 'should filter by category' do
+    get products_url, params: { select_category: 'Bebestible' }
+    assert_response :success
+  end
+
+  test 'should filter by category showing all products' do
+    get products_url, params: { select_category: 'All' }
+    assert_response :success
+  end
+
+  test 'should fail to create product' do
+    assert_difference('Product.count', 0) do
+      post products_url,
+           params: { product: { category: 'Bebestible', price: '10',
+                                volume: '', weight: '10' } }
+    end
+  end
+
+  test 'should fail to update product' do
+    assert_difference('Product.count', 0) do
+      patch product_url(@product),
+            params: { product: { category: 'Comestible', price: '100',
+                                 volume: '100', weight: '' } }
+    end
+  end
 end
