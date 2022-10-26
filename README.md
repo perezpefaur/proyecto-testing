@@ -12,6 +12,12 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 - Deploy de heroku: <https://nameless-headland-31565.herokuapp.com/>
 - Se corren rubocop, simplecov y testing al pushear
 - Se protege la rama main con una serie de reglas
+- Se contruye CRUD
+- Se implementa filtro simple
+- No hay offensas rubocop
+- Se implementan todos los test unitarios
+- se implementan todos los test de integracion
+- 100% covarage
 
 ### Consideraciones generales para la correcion
 
