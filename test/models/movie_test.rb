@@ -16,5 +16,4 @@ class MovieTest < ActiveSupport::TestCase
     movie = Movie.create(title: 'a' * 129)
     assert_equal(false, movie.valid?)
   end
-
 end

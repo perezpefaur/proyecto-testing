@@ -23,7 +23,8 @@ class ReservaTest < ActiveSupport::TestCase
   end
 
   test 'Reserva creada con sala invalida' do
-    reserva = Reserva.create(sala: 5000, fecha: Date.new(2022, 10, 11), asiento: 10, horario: 'TANDA',
+    reserva = Reserva.create(sala: 5000, fecha: Date.new(2022, 10, 11),
+                             asiento: 10, horario: 'TANDA',
                              name: 'Pedro')
     assert_equal(false, reserva.valid?)
   end
