@@ -14,4 +14,16 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
     get movie_new_url
     assert_response :success
   end
+
+  test 'should create movie' do
+    assert_difference 'Movie.count' do
+      post movie_new_url, params: { title: 'Matrix' }
+    end
+  end
+
+  test 'should not create movie if title is empty' do
+    assert_no_difference 'Movie.count' do
+      post movie_new_url, params: { title: '' }
+    end
+  end
 end
