@@ -26,4 +26,16 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
       post movie_new_url, params: { title: '' }
     end
   end
+
+  test 'should not create movie if title is nil' do
+    assert_no_difference 'Movie.count' do
+      post movie_new_url, params: { title: nil }
+    end
+  end
+
+  test 'should not create movie if title is too long' do
+    assert_no_difference 'Movie.count' do
+      post movie_new_url, params: { title: 'a' * 129 }
+    end
+  end
 end
