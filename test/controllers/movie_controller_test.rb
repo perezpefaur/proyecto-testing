@@ -50,7 +50,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get movies list by date' do
-    get movies_by_date_url
+    get movies_by_date_url, params: { date: Date.new(2022, 10, 10) }
     assert_response :success
   end
 end
