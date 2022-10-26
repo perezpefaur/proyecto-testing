@@ -18,7 +18,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'Producto con volumen negativo' do
-    product = Product.create(price: 1, category: 'Comestible', weight: 1, volume: -1)
+    product = Product.create(price: 1, category: 'Bebestible', weight: 1, volume: -1)
     assert_equal(false, product.valid?)
   end
 
