@@ -25,12 +25,16 @@ class MovieTime < ApplicationRecord
     query_text = '((? <= date_end and ? >= date_start) or (? <= date_end and ? >= date_start)) and time = ? and room = ?'
     # rubocop:enable Layout/LineLength
     query = MovieTime.where([query_text, date_start, date_start, date_end, date_end, time, room])
+    # print query data
+
     # rubocop:disable Style/GuardClause
     if query.length.positive?
+
       errors.add(
         :room, "La sala esta ocupada entre #{query[0].date_start} y el #{query[0].date_end}"
       )
     end
+
     # rubocop:enable Style/GuardClause
   end
 end
