@@ -17,7 +17,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create movie' do
     assert_difference 'Movie.count' do
-      post movie_new_url, params: { title: 'Matrix' }
+      post movie_new_url, params: { title: 'Matrix 2', adult: true, language: "SPANISH"}
     end
   end
 
