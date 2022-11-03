@@ -15,13 +15,25 @@
     <div class="column is-one-quarter has-text-centered">
       <p class="title is-5">Crear una reserva</p>
       <%= form_with url: movies_by_date_path, method: :get do |form| %>
-        <div class="field is-horizontal">
-          <div class="field-label is-medium">
-            <%= form.label :query, "Día: ", class: 'label' %>
+        <div>
+          <div class="field is-horizontal">
+            <div class="field-label is-medium">
+              <%= form.label :query, "Día: ", class: 'label' %>
+            </div>
+            <%= form.date_field :date , class: 'input', required: 'required', min: Date.today%>
           </div>
-          <%= form.date_field :date , class: 'input', required: 'required', min: Date.today%>
-        </div>
-        <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
+
+          <div class="field is-horizontal">
+           <h3>¿Buscas para +18?</h3>
+            <%= form.check_box :adult, class: 'checkbox' %>
+          </div>
+          <div class="field is-horizontal">
+            Elige el lenguaje: <%= "   "%> <%=form.select :language, ['SPANISH', 'ENGLISH'], class: 'select'%>
+          </div>
+          <div class="field is-horizontal">
+            Elige la ubicación: <%= form.select :location, ['SANTIAGO', 'REGIONAL'], class: 'select'%>
+          </div>
+          <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
       <% end %>
 
     </div>

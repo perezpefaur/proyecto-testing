@@ -35,8 +35,17 @@
           <div class="field-label is-medium">
             <%= form.label :Imagen, 'Imagen:' %>
           </div>
+          
+  
           <%= form.file_field :image , class:"input", accept: 'image/*'%>
         </div>
+        <div class="field is-horizontal">
+           <h3>Es para +18?</h3>
+            <%= form.check_box :adult, class: 'checkbox' %>
+          </div>
+          <div class="field is-horizontal">
+            Elige el lenguaje: <%= "   "%> <%=form.select :language, ['SPANISH', 'ENGLISH'], class: 'select'%>
+          </div>
         <%= form.submit "Crear", class: "button is-rounded is-link"%>
       <% end %>
     </div>
@@ -82,6 +91,9 @@
             <%= form.select :room, (1..8)%>
           </div>
         </div>
+        <div class="field is-horizontal">
+            Elige la ubicación: <%= form.select :location, ['SANTIAGO', 'REGIONAL'], class: 'select'%>
+          </div>
         <%= form.submit "Asignar", class: "button is-rounded is-link"%>
       <% end %>
     </div>
