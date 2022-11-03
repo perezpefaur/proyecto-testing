@@ -17,7 +17,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create movie' do
     assert_difference 'Movie.count' do
-      post movie_new_url, params: { title: 'Matrix 2', adult: true, language: "SPANISH"}
+      post movie_new_url, params: { title: 'Matrix 2', adult: true, language: 'SPANISH' }
     end
   end
 
@@ -28,7 +28,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create movie time' do
-    movie = Movie.create(title: 'Matrix 5', adult: true, language: "SPANISH")
+    movie = Movie.create(title: 'Matrix 5', adult: true, language: 'SPANISH')
     assert_difference 'MovieTime.count' do
       post new_movie_time_url, params: { movie_time: {
         room: 6, date_start: Date.new(2022, 10, 10),

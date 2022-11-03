@@ -8,7 +8,7 @@ class MovieTest < ActiveSupport::TestCase
   end
 
   test 'Movie con parametros validos' do
-    movie = Movie.create(title: 'Matrix', adult: true, language: "SPANISH")
+    movie = Movie.create(title: 'Matrix', adult: true, language: 'SPANISH')
     assert_equal(true, movie.valid?)
   end
 
