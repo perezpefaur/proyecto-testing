@@ -39,7 +39,14 @@ class MovieController < ApplicationController
     @language = params[:language]
     @location = params[:location]
     # filter movies by adult and language
-    @movies = Movie.where(adult: @adult, language: @language)
+    Rails.logger.debug("SDBHFJBAHDSKAJSK\n\n")
+    Rails.logger.debug(@adult)
+    @movies = if @adult == '1'
+                Movie.where(adult: @adult, language: @language)
+              else
+                Movie.where(language: @language)
+              end
+
     @filter = @movies.includes(:movie_times).where(['movie_times.date_start <= ? and
                                                    ? <= movie_times.date_end
                                                    and movie_times.location = ?',
