@@ -9,9 +9,11 @@ class MovieController < ApplicationController
   end
 
   def post
-    title = params[:title, :adult, :language]
+    title = params[:title]
     image = params[:image]
-    @movie = Movie.new(title:, image:, title:, language:)
+    adult = params[:adult]
+    language = params[:language]
+    @movie = Movie.new(title:, image:, adult:, language:)
     if @movie.save
       redirect_to '/movie/new', notice: 'Pelicula creada con exito'
     else
@@ -21,7 +23,7 @@ class MovieController < ApplicationController
 
   def create_movie_time
     movie_time_params = params.require(:movie_time).permit(:movie_id, :time, :date_start,
-                                                           :date_end, :room)
+                                                           :date_end, :room, :location)
     Rails.logger.debug(movie_time_params)
     movie_time = MovieTime.create(movie_time_params)
     if movie_time.persisted?
