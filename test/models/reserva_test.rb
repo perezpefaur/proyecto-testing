@@ -4,10 +4,10 @@ require 'test_helper'
 
 class ReservaTest < ActiveSupport::TestCase
   def setup
-    movie = Movie.create(title: 'Movie')
+    movie = Movie.create(title: 'Movie 23', adult: true, language: 'SPANISH')
     MovieTime.create(room: 5, date_start: Date.new(2022, 10, 10),
                      date_end: Date.new(2022, 10, 12),
-                     time: 'TANDA', movie_id: movie.id)
+                     time: 'TANDA', movie_id: movie.id, location: 'SANTIAGO')
   end
 
   def teardown

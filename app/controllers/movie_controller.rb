@@ -11,7 +11,9 @@ class MovieController < ApplicationController
   def post
     title = params[:title]
     image = params[:image]
-    @movie = Movie.new(title:, image:)
+    adult = params[:adult]
+    language = params[:language]
+    @movie = Movie.new(title:, image:, adult:, language:)
     if @movie.save
       redirect_to '/movie/new', notice: 'Pelicula creada con exito'
     else
@@ -21,7 +23,7 @@ class MovieController < ApplicationController
 
   def create_movie_time
     movie_time_params = params.require(:movie_time).permit(:movie_id, :time, :date_start,
-                                                           :date_end, :room)
+                                                           :date_end, :room, :location)
     Rails.logger.debug(movie_time_params)
     movie_time = MovieTime.create(movie_time_params)
     if movie_time.persisted?
@@ -33,8 +35,22 @@ class MovieController < ApplicationController
 
   def list_by_date
     @date = params[:date]
-    @filter = Movie.includes(:movie_times).where(['movie_times.date_start <= ? and
-                                                   ? <= movie_times.date_end',
-                                                  @date, @date]).references(:movie_times)
+    @adult = params[:adult]
+    @language = params[:language]
+    @location = params[:location]
+    # filter movies by adult and language
+    Rails.logger.debug("SDBHFJBAHDSKAJSK\n\n")
+    Rails.logger.debug(@adult)
+    @movies = if @adult == '0'
+                Movie.where(adult: @adult, language: @language)
+              else
+                Movie.where(language: @language)
+              end
+
+    @filter = @movies.includes(:movie_times).where(['movie_times.date_start <= ? and
+                                                   ? <= movie_times.date_end
+                                                   and movie_times.location = ?',
+                                                    @date, @date, @location])
+                     .references(:movie_times)
   end
 end

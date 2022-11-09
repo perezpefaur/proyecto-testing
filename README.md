@@ -18,6 +18,9 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 - Se implementan todos los test unitarios
 - se implementan todos los test de integracion
 - 100% covarage
+- Se crea el nuevo formulario
+- La tabla esta en el root tabla.jpeg
+- Se crean test de integracion para cada caso de la tabla
 
 ### Consideraciones generales para la correcion
 

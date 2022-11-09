@@ -32,3 +32,6 @@ Style/Documentation:
 
 Rails/I18nLocaleTexts:
   Enabled: false
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context', 'before']
