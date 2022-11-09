@@ -20,20 +20,20 @@
             <div class="field-label is-medium">
               <%= form.label :query, "Día: ", class: 'label' %>
             </div>
-            <%= form.date_field :date , class: 'input', required: 'required', min: Date.today%>
+            <%= form.date_field :date , class: 'input', required: 'required', min: Date.today, id: 'find_date'%>
           </div>
 
           <div class="field is-horizontal">
-           <h3>¿Buscas para +18?</h3>
-            <%= form.check_box :adult, class: 'checkbox' %>
+           <h3>¿Tienes +18?</h3>
+            <%= form.check_box :adult, class: 'checkbox', id: 'check_adult'%>
           </div>
           <div class="field is-horizontal">
-            Elige el lenguaje: <%= "   "%> <%=form.select :language, ['SPANISH', 'ENGLISH'], class: 'select'%>
+            Elige el lenguaje: <%= "   "%> <%=form.select :language, ['SPANISH', 'ENGLISH'], class: 'select', id: 'language'%>
           </div>
           <div class="field is-horizontal">
-            Elige la ubicación: <%= form.select :location, ['SANTIAGO', 'REGIONAL'], class: 'select'%>
+            Elige la ubicación: <%= form.select :location, ['SANTIAGO', 'REGIONAL'], class: 'select', id: 'location'%>
           </div>
-          <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
+          <%= form.submit "Buscar" , class: "button is-rounded is-link", id: 'search'%>
       <% end %>
 
     </div>

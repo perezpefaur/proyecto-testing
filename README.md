@@ -18,6 +18,7 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 - Se implementan todos los test unitarios
 - se implementan todos los test de integracion
 - 100% covarage
+- La tabla esta en el root tabla.jpeg
 
 ### Consideraciones generales para la correcion
 

@@ -41,7 +41,7 @@ class MovieController < ApplicationController
     # filter movies by adult and language
     Rails.logger.debug("SDBHFJBAHDSKAJSK\n\n")
     Rails.logger.debug(@adult)
-    @movies = if @adult == '1'
+    @movies = if @adult == '0'
                 Movie.where(adult: @adult, language: @language)
               else
                 Movie.where(language: @language)
