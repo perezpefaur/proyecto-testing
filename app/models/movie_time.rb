@@ -29,8 +29,9 @@ class MovieTime < ApplicationRecord
     # print query data
 
     # rubocop:disable Style/GuardClause
-    if query.length.positive?
 
+
+    if query.length.positive?
       errors.add(
         :room, "La sala esta ocupada entre #{query[0].date_start} y el #{query[0].date_end}"
       )
