@@ -26,3 +26,7 @@ Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo 
 
 Cualquier detalle que consideren que puede ser útil para el corrector. Ej:
 bugs detectados, pasos adicionales de setup, cosas que no sean tan claras relacionadas con el uso de su aplicacion, entre otros
+
+
+
+El archivo con los resultados se llama Entrega 4.xlsx y se encuentra en la raíz del repositorio
