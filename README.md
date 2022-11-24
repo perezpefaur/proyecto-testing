@@ -29,4 +29,4 @@ bugs detectados, pasos adicionales de setup, cosas que no sean tan claras relaci
 
 
 
-El archivo con los resultados se llama Entrega 4.xlsx y se encuentra en la raíz del repositorio
+El archivo con los resultados se llama Entrega 4.xlsx y se encuentra en la raíz del repositorio con todos los tests verificados.
